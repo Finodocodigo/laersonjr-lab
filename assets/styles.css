@@ -746,25 +746,76 @@ textarea {
   background: var(--surface);
 }
 
-.thankyou fieldset {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  background: var(--surface-2);
+/* Survey — sequential typeform-like flow */
+.survey-flow {
+  min-height: 360px;
   display: grid;
-  gap: 14px;
-  margin: 0 0 18px;
+  gap: 0;
 }
 
-.thankyou legend {
-  padding: 4px 10px;
-  font-size: 13px;
+.survey-flow .step {
+  display: none;
+  animation: fadeStep 0.28s ease;
+}
+
+.survey-flow .step.active {
+  display: block;
+}
+
+.survey-flow .step-label {
+  display: grid;
+  gap: 18px;
+}
+
+.survey-flow .step-q {
+  font-size: clamp(20px, 3.2vw, 26px);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--brand-2);
-  background: var(--surface);
-  border-radius: 999px;
+  line-height: 1.35;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.survey-flow .step input,
+.survey-flow .step select,
+.survey-flow .step textarea {
+  font-size: 17px;
+  padding: 16px 18px;
+  border-radius: 12px;
+}
+
+.survey-flow .step textarea {
+  min-height: 120px;
+}
+
+.survey-flow .step-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--brand);
+}
+
+.btn-ghost:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@keyframes fadeStep {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .bonus-card {

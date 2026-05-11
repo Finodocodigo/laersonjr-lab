@@ -12,20 +12,18 @@
     <div class="container narrow">
       <p class="eyebrow">Compra confirmada</p>
       <h1>Bem-vindo(a)<span id="greet-name"></span> ao Funil Solo. Seu acesso já está a caminho do seu e-mail.</h1>
-      <p class="sub">Antes de você abrir o módulo 1, eu preciso de <strong>4 minutos</strong> seus. Responder isto abaixo vai mudar o que eu reforço, o que eu corto e o que eu adiciono nas próximas aulas — diretamente baseado em quem comprou hoje.</p>
+      <p class="sub">Antes de você abrir o módulo 1, eu preciso de <strong>4 minutos</strong> seus. Suas respostas mudam o que eu reforço, corto e adiciono nas próximas aulas.</p>
       <p class="sub"><strong>Bônus por responder:</strong> ao finalizar você libera o "Checklist Checkout no Ar em 90 Minutos" no fim da página.</p>
     </div>
   </header>
 
   <section class="form-section">
     <div class="container narrow">
-      <form id="survey-form" novalidate>
+      <form id="survey-form" class="survey-flow" novalidate>
 
-        <fieldset>
-          <legend>Parte 1 — Quem é você</legend>
-
-          <label>
-            <span>Sua idade</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Sua idade</span>
             <select name="age" required>
               <option value="">Selecione</option>
               <option>18-24</option>
@@ -35,9 +33,11 @@
               <option>55+</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Como você se identifica</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Como você se identifica</span>
             <select name="gender" required>
               <option value="">Selecione</option>
               <option>Mulher</option>
@@ -46,14 +46,18 @@
               <option>Prefiro não dizer</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Estado onde mora</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Estado onde mora</span>
             <input type="text" name="state" required placeholder="Ex: SP" maxlength="2" />
           </label>
+        </div>
 
-          <label>
-            <span>Situação familiar</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Situação familiar</span>
             <select name="family" required>
               <option value="">Selecione</option>
               <option>Solteiro(a) sem filhos</option>
@@ -62,9 +66,11 @@
               <option>Casado(a) com filhos</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Você trabalha sozinho(a) ou tem equipe?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Você trabalha sozinho(a) ou tem equipe?</span>
             <select name="team" required>
               <option value="">Selecione</option>
               <option>Sozinho(a) (solo)</option>
@@ -73,13 +79,11 @@
               <option>Equipe de 6+</option>
             </select>
           </label>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Parte 2 — Seu negócio hoje</legend>
-
-          <label>
-            <span>Tipo de negócio</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Tipo de negócio</span>
             <select name="biz_type" required>
               <option value="">Selecione</option>
               <option>Coach / mentor</option>
@@ -93,9 +97,11 @@
               <option>Outro</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Faturamento médio mensal hoje</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Faturamento médio mensal hoje</span>
             <select name="revenue" required>
               <option value="">Selecione</option>
               <option>R$ 0 (ainda não vendi)</option>
@@ -107,9 +113,11 @@
               <option>R$ 100.000+</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Há quanto tempo tem (ou está planejando) esse negócio?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Há quanto tempo tem (ou está planejando) esse negócio?</span>
             <select name="biz_age" required>
               <option value="">Selecione</option>
               <option>Ainda não comecei</option>
@@ -120,9 +128,11 @@
               <option>5+ anos</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Status atual do seu funil de venda hoje</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Status atual do seu funil de venda hoje</span>
             <select name="current_stack" required>
               <option value="">Selecione</option>
               <option>Não tenho funil — começando do zero</option>
@@ -134,9 +144,11 @@
               <option>Outro</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</span>
             <select name="prior_spend" required>
               <option value="">Selecione</option>
               <option>R$ 0 — nunca contratei</option>
@@ -147,42 +159,46 @@
               <option>R$ 15.000+</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Já comprou outros cursos de marketing digital, tráfego, automação ou tecnologia?</span>
-            <textarea name="prior_courses" rows="2" placeholder="Quais? (deixe em branco se nunca comprou)"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Já comprou outros cursos de marketing digital, tráfego, automação ou tecnologia?</span>
+            <textarea name="prior_courses" rows="3" placeholder="Quais? (deixe em branco se nunca comprou)"></textarea>
           </label>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Parte 3 — O que você espera</legend>
-
-          <label>
-            <span>Qual problema específico você está tentando resolver comprando o Funil Solo?</span>
-            <textarea name="problem" rows="3" required placeholder="Conte com suas palavras — quanto mais específico, melhor"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Qual problema específico você está tentando resolver comprando o Funil Solo?</span>
+            <textarea name="problem" rows="4" required placeholder="Conte com suas palavras — quanto mais específico, melhor"></textarea>
           </label>
+        </div>
 
-          <label>
-            <span>O que você quer ter no ar daqui a 30 dias?</span>
-            <textarea name="goal_30d" rows="3" required placeholder="Ex: 'site no ar com domínio próprio', 'captura de lead integrada com WhatsApp', 'checkout funcionando'"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">O que você quer ter no ar daqui a 30 dias?</span>
+            <textarea name="goal_30d" rows="4" required placeholder="Ex: 'site no ar com domínio próprio', 'captura de lead integrada com WhatsApp', 'checkout funcionando'"></textarea>
           </label>
+        </div>
 
-          <label>
-            <span>Se daqui 90 dias você falar "esse curso valeu cada centavo", o que precisará ter acontecido?</span>
-            <textarea name="success_90d" rows="3" required placeholder="Resultado, sensação, número, mudança concreta na sua rotina"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Se daqui 90 dias você falar "esse curso valeu cada centavo", o que precisará ter acontecido?</span>
+            <textarea name="success_90d" rows="4" required placeholder="Resultado, sensação, número, mudança concreta na sua rotina"></textarea>
           </label>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Parte 4 — Como você chegou até aqui</legend>
-
-          <label>
-            <span>Qual foi o motivo nº 1 que te fez comprar HOJE (e não daqui 30 dias)?</span>
-            <textarea name="trigger" rows="3" required placeholder="O que mudou? Algo aconteceu? Uma frustração específica?"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Qual foi o motivo nº 1 que te fez comprar HOJE (e não daqui 30 dias)?</span>
+            <textarea name="trigger" rows="4" required placeholder="O que mudou? Algo aconteceu? Uma frustração específica?"></textarea>
           </label>
+        </div>
 
-          <label>
-            <span>Há quanto tempo você me acompanha?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Há quanto tempo você me acompanha?</span>
             <select name="known_for" required>
               <option value="">Selecione</option>
               <option>Cheguei hoje — primeira vez que ouço falar</option>
@@ -193,9 +209,11 @@
               <option>Mais de 1 ano</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Onde você me viu pela primeira vez?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Onde você me viu pela primeira vez?</span>
             <select name="first_touch" required>
               <option value="">Selecione</option>
               <option>Instagram (post/reels)</option>
@@ -209,9 +227,11 @@
               <option>Outro</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Quantos conteúdos meus você consumiu ANTES de comprar?</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Quantos conteúdos meus você consumiu ANTES de comprar?</span>
             <select name="content_consumed" required>
               <option value="">Selecione</option>
               <option>Esse foi o 1º</option>
@@ -221,31 +241,41 @@
               <option>50+</option>
             </select>
           </label>
+        </div>
 
-          <label>
-            <span>Qual conteúdo específico (post, vídeo, e-mail) mais te convenceu? Se lembra do título/tema, descreva.</span>
-            <textarea name="convincing_content" rows="2" placeholder="Tudo bem se não lembrar exatamente"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Qual conteúdo específico (post, vídeo, e-mail) mais te convenceu? Se lembra do título/tema, descreva.</span>
+            <textarea name="convincing_content" rows="3" placeholder="Tudo bem se não lembrar exatamente"></textarea>
           </label>
+        </div>
 
-          <label>
-            <span>Alguém te indicou? Se sim, quem? (nome ou @)</span>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Alguém te indicou? Se sim, quem? (nome ou @)</span>
             <input type="text" name="referrer" placeholder="Deixe em branco se não foi indicação" />
           </label>
+        </div>
 
-          <label>
-            <span>Qual era sua MAIOR dúvida antes de clicar em comprar?</span>
-            <textarea name="biggest_doubt" rows="3" required placeholder="Seja honesto — isso ajuda muito a próxima pessoa"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">Qual era sua MAIOR dúvida antes de clicar em comprar?</span>
+            <textarea name="biggest_doubt" rows="4" required placeholder="Seja honesto — isso ajuda muito a próxima pessoa"></textarea>
           </label>
+        </div>
 
-          <label>
-            <span>O que quase te fez NÃO comprar?</span>
-            <textarea name="almost_didnt_buy" rows="3" required placeholder="Preço? Falta de tempo? Dúvida específica? Conta tudo"></textarea>
+        <div class="step">
+          <label class="step-label">
+            <span class="step-q">O que quase te fez NÃO comprar?</span>
+            <textarea name="almost_didnt_buy" rows="4" required placeholder="Preço? Falta de tempo? Dúvida específica? Conta tudo"></textarea>
           </label>
-        </fieldset>
+        </div>
 
-        <button type="submit" class="btn btn-primary btn-block" id="survey-submit">
-          Enviar respostas e liberar bônus
-        </button>
+        <div class="step-nav">
+          <button type="button" class="btn btn-ghost" id="prev-btn">← Voltar</button>
+          <button type="button" class="btn btn-primary" id="next-btn">Avançar →</button>
+          <button type="submit" class="btn btn-primary" id="survey-submit" hidden>Enviar e liberar bônus</button>
+        </div>
       </form>
 
       <div id="thanks-block" hidden>

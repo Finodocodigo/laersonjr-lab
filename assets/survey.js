@@ -1,6 +1,7 @@
 // ============================================================================
 // Funil de estudo — página de obrigado
-// Saúda pelo nome, coleta pesquisa Lost Chapter (Hormozi) e salva localmente
+// Saúda pelo nome, coleta pesquisa Lost Chapter (Hormozi) num fluxo sequencial
+// estilo typeform (uma pergunta por vez, voltar/avançar), salva localmente
 // ============================================================================
 
 // >>> Opcional: webhook para receber as respostas (Make/Zapier/n8n) <<<
@@ -35,27 +36,96 @@ function formToObject(form) {
   return data;
 }
 
-function validateRequired(form) {
-  let firstInvalid = null;
-  for (const el of form.querySelectorAll("[required]")) {
-    const ok = el.value && el.value.trim() !== "";
-    el.setAttribute("aria-invalid", ok ? "false" : "true");
-    if (!ok && !firstInvalid) firstInvalid = el;
-  }
-  if (firstInvalid) {
-    firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
-    firstInvalid.focus({ preventScroll: true });
-    return false;
-  }
-  return true;
+// ---------- Fluxo sequencial -------------------------------------------------
+
+const form = document.getElementById("survey-form");
+const steps = form ? Array.from(form.querySelectorAll(".step")) : [];
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const submitBtn = document.getElementById("survey-submit");
+
+let current = 0;
+
+function activeControl(step) {
+  return step.querySelector("input, select, textarea");
 }
+
+function isStepValid(step) {
+  const ctrl = activeControl(step);
+  if (!ctrl) return true;
+  if (!ctrl.hasAttribute("required")) return true;
+  return ctrl.value && ctrl.value.trim() !== "";
+}
+
+function flagStep(step, invalid) {
+  const ctrl = activeControl(step);
+  if (!ctrl) return;
+  ctrl.setAttribute("aria-invalid", invalid ? "true" : "false");
+}
+
+function showStep(i) {
+  steps.forEach((s, idx) => s.classList.toggle("active", idx === i));
+  current = i;
+
+  if (prevBtn) prevBtn.disabled = i === 0;
+
+  const isLast = i === steps.length - 1;
+  if (nextBtn) nextBtn.hidden = isLast;
+  if (submitBtn) submitBtn.hidden = !isLast;
+
+  const ctrl = activeControl(steps[i]);
+  if (ctrl) setTimeout(() => ctrl.focus({ preventScroll: true }), 30);
+}
+
+function goNext() {
+  const step = steps[current];
+  if (!isStepValid(step)) {
+    flagStep(step, true);
+    const ctrl = activeControl(step);
+    if (ctrl) ctrl.focus();
+    return;
+  }
+  flagStep(step, false);
+  if (current < steps.length - 1) showStep(current + 1);
+}
+
+function goPrev() {
+  if (current > 0) showStep(current - 1);
+}
+
+if (prevBtn) prevBtn.addEventListener("click", goPrev);
+if (nextBtn) nextBtn.addEventListener("click", goNext);
+
+// Enter avança (mas não em textarea — lá Enter é quebra de linha)
+if (form) {
+  form.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "textarea") return;
+    e.preventDefault();
+    if (current === steps.length - 1) {
+      if (isStepValid(steps[current])) form.requestSubmit();
+      else {
+        flagStep(steps[current], true);
+        activeControl(steps[current]).focus();
+      }
+    } else {
+      goNext();
+    }
+  });
+}
+
+// ---------- Submit -----------------------------------------------------------
 
 async function handleSubmit(event) {
   event.preventDefault();
-  const form = event.currentTarget;
-  const btn = document.getElementById("survey-submit");
-
-  if (!validateRequired(form)) return;
+  const step = steps[current];
+  if (!isStepValid(step)) {
+    flagStep(step, true);
+    const ctrl = activeControl(step);
+    if (ctrl) ctrl.focus();
+    return;
+  }
 
   const answers = formToObject(form);
   const lead = loadLead();
@@ -76,8 +146,8 @@ async function handleSubmit(event) {
     /* segue sem persistir */
   }
 
-  btn.disabled = true;
-  btn.textContent = "Enviando...";
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando...";
 
   if (SURVEY_WEBHOOK_URL) {
     try {
@@ -100,7 +170,8 @@ async function handleSubmit(event) {
   }
 }
 
-greetByName();
+// ---------- Init -------------------------------------------------------------
 
-const form = document.getElementById("survey-form");
+greetByName();
 if (form) form.addEventListener("submit", handleSubmit);
+if (steps.length > 0) showStep(0);

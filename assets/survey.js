@@ -64,7 +64,11 @@ function flagStep(step, invalid) {
 }
 
 function showStep(i) {
-  steps.forEach((s, idx) => s.classList.toggle("active", idx === i));
+  steps.forEach((s, idx) => {
+    const isActive = idx === i;
+    s.classList.toggle("active", isActive);
+    s.hidden = !isActive;
+  });
   current = i;
 
   if (prevBtn) prevBtn.disabled = i === 0;

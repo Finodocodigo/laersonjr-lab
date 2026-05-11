@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bem-vindo(a) ao Funil Solo</title>
   <meta name="robots" content="noindex" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body class="thankyou">
   <header class="hero hero-success">
@@ -35,7 +35,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Como você se identifica</span>
             <select name="gender" required>
@@ -48,14 +48,14 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Estado onde mora</span>
             <input type="text" name="state" required placeholder="Ex: SP" maxlength="2" />
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Situação familiar</span>
             <select name="family" required>
@@ -68,7 +68,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Você trabalha sozinho(a) ou tem equipe?</span>
             <select name="team" required>
@@ -81,7 +81,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Tipo de negócio</span>
             <select name="biz_type" required>
@@ -99,7 +99,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Faturamento médio mensal hoje</span>
             <select name="revenue" required>
@@ -115,7 +115,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Há quanto tempo tem (ou está planejando) esse negócio?</span>
             <select name="biz_age" required>
@@ -130,7 +130,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Status atual do seu funil de venda hoje</span>
             <select name="current_stack" required>
@@ -146,7 +146,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</span>
             <select name="prior_spend" required>
@@ -161,42 +161,42 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Já comprou outros cursos de marketing digital, tráfego, automação ou tecnologia?</span>
             <textarea name="prior_courses" rows="3" placeholder="Quais? (deixe em branco se nunca comprou)"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Qual problema específico você está tentando resolver comprando o Funil Solo?</span>
             <textarea name="problem" rows="4" required placeholder="Conte com suas palavras — quanto mais específico, melhor"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">O que você quer ter no ar daqui a 30 dias?</span>
             <textarea name="goal_30d" rows="4" required placeholder="Ex: 'site no ar com domínio próprio', 'captura de lead integrada com WhatsApp', 'checkout funcionando'"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Se daqui 90 dias você falar "esse curso valeu cada centavo", o que precisará ter acontecido?</span>
             <textarea name="success_90d" rows="4" required placeholder="Resultado, sensação, número, mudança concreta na sua rotina"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Qual foi o motivo nº 1 que te fez comprar HOJE (e não daqui 30 dias)?</span>
             <textarea name="trigger" rows="4" required placeholder="O que mudou? Algo aconteceu? Uma frustração específica?"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Há quanto tempo você me acompanha?</span>
             <select name="known_for" required>
@@ -211,7 +211,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Onde você me viu pela primeira vez?</span>
             <select name="first_touch" required>
@@ -229,7 +229,7 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Quantos conteúdos meus você consumiu ANTES de comprar?</span>
             <select name="content_consumed" required>
@@ -243,28 +243,28 @@
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Qual conteúdo específico (post, vídeo, e-mail) mais te convenceu? Se lembra do título/tema, descreva.</span>
             <textarea name="convincing_content" rows="3" placeholder="Tudo bem se não lembrar exatamente"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Alguém te indicou? Se sim, quem? (nome ou @)</span>
             <input type="text" name="referrer" placeholder="Deixe em branco se não foi indicação" />
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Qual era sua MAIOR dúvida antes de clicar em comprar?</span>
             <textarea name="biggest_doubt" rows="4" required placeholder="Seja honesto — isso ajuda muito a próxima pessoa"></textarea>
           </label>
         </div>
 
-        <div class="step">
+        <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">O que quase te fez NÃO comprar?</span>
             <textarea name="almost_didnt_buy" rows="4" required placeholder="Preço? Falta de tempo? Dúvida específica? Conta tudo"></textarea>
@@ -302,6 +302,6 @@
     </div>
   </footer>
 
-  <script src="/assets/survey.js"></script>
+  <script src="../assets/survey.js"></script>
 </body>
 </html>

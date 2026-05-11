@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bem-vindo(a) ao Funil Solo</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="thankyou">
+  <header class="hero hero-success">
+    <div class="container narrow">
+      <p class="eyebrow">Compra confirmada</p>
+      <h1>Bem-vindo(a)<span id="greet-name"></span> ao Funil Solo. Seu acesso já está a caminho do seu e-mail.</h1>
+      <p class="sub">Antes de você abrir o módulo 1, eu preciso de <strong>4 minutos</strong> seus. Responder isto abaixo vai mudar o que eu reforço, o que eu corto e o que eu adiciono nas próximas aulas — diretamente baseado em quem comprou hoje.</p>
+      <p class="sub"><strong>Bônus por responder:</strong> ao finalizar você libera o "Checklist Checkout no Ar em 90 Minutos" no fim da página.</p>
+    </div>
+  </header>
+
+  <section class="form-section">
+    <div class="container narrow">
+      <form id="survey-form" novalidate>
+
+        <fieldset>
+          <legend>Parte 1 — Quem é você</legend>
+
+          <label>
+            <span>Sua idade</span>
+            <select name="age" required>
+              <option value="">Selecione</option>
+              <option>18-24</option>
+              <option>25-34</option>
+              <option>35-44</option>
+              <option>45-54</option>
+              <option>55+</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Como você se identifica</span>
+            <select name="gender" required>
+              <option value="">Selecione</option>
+              <option>Mulher</option>
+              <option>Homem</option>
+              <option>Não-binário</option>
+              <option>Prefiro não dizer</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Estado onde mora</span>
+            <input type="text" name="state" required placeholder="Ex: SP" maxlength="2" />
+          </label>
+
+          <label>
+            <span>Situação familiar</span>
+            <select name="family" required>
+              <option value="">Selecione</option>
+              <option>Solteiro(a) sem filhos</option>
+              <option>Solteiro(a) com filhos</option>
+              <option>Casado(a) sem filhos</option>
+              <option>Casado(a) com filhos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Você trabalha sozinho(a) ou tem equipe?</span>
+            <select name="team" required>
+              <option value="">Selecione</option>
+              <option>Sozinho(a) (solo)</option>
+              <option>Eu + 1 ajudante</option>
+              <option>Equipe de 2 a 5</option>
+              <option>Equipe de 6+</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Parte 2 — Seu negócio hoje</legend>
+
+          <label>
+            <span>Tipo de negócio</span>
+            <select name="biz_type" required>
+              <option value="">Selecione</option>
+              <option>Coach / mentor</option>
+              <option>Consultor(a)</option>
+              <option>Infoprodutor(a) (curso/ebook)</option>
+              <option>Prestador de serviço local</option>
+              <option>Agência iniciante</option>
+              <option>E-commerce pequeno</option>
+              <option>Profissional liberal</option>
+              <option>Ainda não tenho — vou começar</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Faturamento médio mensal hoje</span>
+            <select name="revenue" required>
+              <option value="">Selecione</option>
+              <option>R$ 0 (ainda não vendi)</option>
+              <option>R$ 1 - R$ 2.000</option>
+              <option>R$ 2.001 - R$ 5.000</option>
+              <option>R$ 5.001 - R$ 10.000</option>
+              <option>R$ 10.001 - R$ 30.000</option>
+              <option>R$ 30.001 - R$ 100.000</option>
+              <option>R$ 100.000+</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Há quanto tempo tem (ou está planejando) esse negócio?</span>
+            <select name="biz_age" required>
+              <option value="">Selecione</option>
+              <option>Ainda não comecei</option>
+              <option>Menos de 6 meses</option>
+              <option>6 a 12 meses</option>
+              <option>1 a 2 anos</option>
+              <option>3 a 5 anos</option>
+              <option>5+ anos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Status atual do seu funil de venda hoje</span>
+            <select name="current_stack" required>
+              <option value="">Selecione</option>
+              <option>Não tenho funil — começando do zero</option>
+              <option>Vendo só pelo Instagram/DM, sem funil</option>
+              <option>Tenho landing, mas sem checkout integrado</option>
+              <option>Tenho checkout (Kiwify/Hotmart), mas sem landing/captação</option>
+              <option>Tenho funil rodando, mas dando problema</option>
+              <option>Tinha agência/freelancer, agora quero fazer sozinho</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</span>
+            <select name="prior_spend" required>
+              <option value="">Selecione</option>
+              <option>R$ 0 — nunca contratei</option>
+              <option>R$ 1 - R$ 500</option>
+              <option>R$ 501 - R$ 2.000</option>
+              <option>R$ 2.001 - R$ 5.000</option>
+              <option>R$ 5.001 - R$ 15.000</option>
+              <option>R$ 15.000+</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Já comprou outros cursos de marketing digital, tráfego, automação ou tecnologia?</span>
+            <textarea name="prior_courses" rows="2" placeholder="Quais? (deixe em branco se nunca comprou)"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Parte 3 — O que você espera</legend>
+
+          <label>
+            <span>Qual problema específico você está tentando resolver comprando o Funil Solo?</span>
+            <textarea name="problem" rows="3" required placeholder="Conte com suas palavras — quanto mais específico, melhor"></textarea>
+          </label>
+
+          <label>
+            <span>O que você quer ter no ar daqui a 30 dias?</span>
+            <textarea name="goal_30d" rows="3" required placeholder="Ex: 'site no ar com domínio próprio', 'captura de lead integrada com WhatsApp', 'checkout funcionando'"></textarea>
+          </label>
+
+          <label>
+            <span>Se daqui 90 dias você falar "esse curso valeu cada centavo", o que precisará ter acontecido?</span>
+            <textarea name="success_90d" rows="3" required placeholder="Resultado, sensação, número, mudança concreta na sua rotina"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Parte 4 — Como você chegou até aqui</legend>
+
+          <label>
+            <span>Qual foi o motivo nº 1 que te fez comprar HOJE (e não daqui 30 dias)?</span>
+            <textarea name="trigger" rows="3" required placeholder="O que mudou? Algo aconteceu? Uma frustração específica?"></textarea>
+          </label>
+
+          <label>
+            <span>Há quanto tempo você me acompanha?</span>
+            <select name="known_for" required>
+              <option value="">Selecione</option>
+              <option>Cheguei hoje — primeira vez que ouço falar</option>
+              <option>Menos de 1 semana</option>
+              <option>1 a 4 semanas</option>
+              <option>1 a 3 meses</option>
+              <option>3 a 12 meses</option>
+              <option>Mais de 1 ano</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Onde você me viu pela primeira vez?</span>
+            <select name="first_touch" required>
+              <option value="">Selecione</option>
+              <option>Instagram (post/reels)</option>
+              <option>Instagram (story)</option>
+              <option>YouTube</option>
+              <option>TikTok</option>
+              <option>LinkedIn</option>
+              <option>Google / pesquisa</option>
+              <option>Indicação de amigo</option>
+              <option>Anúncio pago</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Quantos conteúdos meus você consumiu ANTES de comprar?</span>
+            <select name="content_consumed" required>
+              <option value="">Selecione</option>
+              <option>Esse foi o 1º</option>
+              <option>2 a 5</option>
+              <option>6 a 15</option>
+              <option>16 a 50</option>
+              <option>50+</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Qual conteúdo específico (post, vídeo, e-mail) mais te convenceu? Se lembra do título/tema, descreva.</span>
+            <textarea name="convincing_content" rows="2" placeholder="Tudo bem se não lembrar exatamente"></textarea>
+          </label>
+
+          <label>
+            <span>Alguém te indicou? Se sim, quem? (nome ou @)</span>
+            <input type="text" name="referrer" placeholder="Deixe em branco se não foi indicação" />
+          </label>
+
+          <label>
+            <span>Qual era sua MAIOR dúvida antes de clicar em comprar?</span>
+            <textarea name="biggest_doubt" rows="3" required placeholder="Seja honesto — isso ajuda muito a próxima pessoa"></textarea>
+          </label>
+
+          <label>
+            <span>O que quase te fez NÃO comprar?</span>
+            <textarea name="almost_didnt_buy" rows="3" required placeholder="Preço? Falta de tempo? Dúvida específica? Conta tudo"></textarea>
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary btn-block" id="survey-submit">
+          Enviar respostas e liberar bônus
+        </button>
+      </form>
+
+      <div id="thanks-block" hidden>
+        <h2>Obrigado de verdade. 🙏</h2>
+        <p>Suas respostas foram salvas. Agora pega seu bônus:</p>
+        <div class="bonus-card">
+          <h3>Checklist — Checkout no Ar em 90 Minutos</h3>
+          <ol>
+            <li>Crie sua conta gratuita na Kiwify (5 min). Cadastre dados bancários para receber.</li>
+            <li>Cadastre seu infoproduto: nome, preço, descrição em 3 linhas (20 min).</li>
+            <li>Faça a capa no Canva grátis usando o template "infoproduto" (10 min).</li>
+            <li>Configure entrega automática: e-mail com o link do produto (PDF, Drive, área de membros) — 30 min.</li>
+            <li>Salve o link de pagamento. Mande para 3 pessoas conhecidas como teste. Pronto — você tem o primeiro link de venda no ar.</li>
+          </ol>
+          <p class="micro">Volte ao seu e-mail — o link de acesso ao curso completo já está lá.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 · Funil Solo · Material educativo · Funil de estudo</p>
+    </div>
+  </footer>
+
+  <script src="/assets/survey.js"></script>
+</body>
+</html>

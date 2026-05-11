@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ambiente de testes — @laersonjr</title>
+  <meta name="description" content="Ambiente pessoal de testes e estudos de funis, copy e marketing digital." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    .notice {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+    }
+    .notice-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      padding: 2.5rem 1.75rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .notice-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 200, 0, 0.12);
+      color: #ffd166;
+      border: 1px solid rgba(255, 200, 0, 0.3);
+      margin-bottom: 1.25rem;
+    }
+    .notice-card h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    .notice-card p {
+      margin: 0 0 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+    .notice-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .notice-actions .btn {
+      width: 100%;
+    }
+    .notice-actions .btn:not(.btn-primary) {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .notice-actions .btn:not(.btn-primary):hover {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .notice-card h1 a {
+      color: #ffd166;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 209, 102, 0.5);
+    }
+    .notice-card h1 a:hover {
+      border-bottom-style: solid;
+    }
+    .notice-foot {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+    @media (min-width: 520px) {
+      .notice-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .notice-actions .btn { width: auto; }
+    }
+  </style>
+</head>
+<body class="landing">
+  <main class="notice">
+    <div class="notice-card">
+      <span class="notice-badge">⚠ Ambiente de testes</span>
+      <h1>Este é um ambiente pessoal de testes e estudos do <a href="https://instagram.com/laersonjr" target="_blank" rel="noopener noreferrer">@laersonjr</a> no Instagram.</h1>
+      <p>Nada por aqui é oferta comercial real. As páginas servem para estudo de copy, funis, checkout, captura de lead e métricas — qualquer "compra" exibida é apenas exemplo didático.</p>
+      <p>Se você caiu aqui sem querer, provavelmente quer o Instagram. Se está estudando junto, fica à vontade pra explorar.</p>
+
+      <div class="notice-actions">
+        <a class="btn btn-primary" href="https://instagram.com/laersonjr" target="_blank" rel="noopener noreferrer">Ir para @laersonjr</a>
+        <a class="btn" href="/funil-estudo">Ver funil de estudo</a>
+      </div>
+
+      <p class="notice-foot">© 2026 · Material educativo · Não é oferta comercial</p>
+    </div>
+  </main>
+</body>
+</html>

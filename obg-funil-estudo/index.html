@@ -22,143 +22,116 @@
       <form id="survey-form" class="survey-flow" novalidate>
 
         <div class="step">
-          <label class="step-label">
-            <span class="step-q">Sua idade</span>
-            <select name="age" required>
-              <option value="">Selecione</option>
-              <option>18-24</option>
-              <option>25-34</option>
-              <option>35-44</option>
-              <option>45-54</option>
-              <option>55+</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Sua idade</legend>
+            <label class="choice"><input type="radio" name="age" value="18-24" required /><span>18-24</span></label>
+            <label class="choice"><input type="radio" name="age" value="25-34" /><span>25-34</span></label>
+            <label class="choice"><input type="radio" name="age" value="35-44" /><span>35-44</span></label>
+            <label class="choice"><input type="radio" name="age" value="45-54" /><span>45-54</span></label>
+            <label class="choice"><input type="radio" name="age" value="55+" /><span>55+</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Como você se identifica</span>
-            <select name="gender" required>
-              <option value="">Selecione</option>
-              <option>Mulher</option>
-              <option>Homem</option>
-              <option>Não-binário</option>
-              <option>Prefiro não dizer</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Como você se identifica</legend>
+            <label class="choice"><input type="radio" name="gender" value="Mulher" required /><span>Mulher</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Homem" /><span>Homem</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Não-binário" /><span>Não-binário</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Prefiro não dizer" /><span>Prefiro não dizer</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
           <label class="step-label">
             <span class="step-q">Estado onde mora</span>
-            <input type="text" name="state" required placeholder="Ex: SP" maxlength="2" />
+            <input type="text" name="state" required placeholder="Ex: SP" maxlength="2" autocomplete="address-level1" style="max-width: 200px; text-transform: uppercase;" />
           </label>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Situação familiar</span>
-            <select name="family" required>
-              <option value="">Selecione</option>
-              <option>Solteiro(a) sem filhos</option>
-              <option>Solteiro(a) com filhos</option>
-              <option>Casado(a) sem filhos</option>
-              <option>Casado(a) com filhos</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Situação familiar</legend>
+            <label class="choice"><input type="radio" name="family" value="Solteiro(a) sem filhos" required /><span>Solteiro(a) sem filhos</span></label>
+            <label class="choice"><input type="radio" name="family" value="Solteiro(a) com filhos" /><span>Solteiro(a) com filhos</span></label>
+            <label class="choice"><input type="radio" name="family" value="Casado(a) sem filhos" /><span>Casado(a) sem filhos</span></label>
+            <label class="choice"><input type="radio" name="family" value="Casado(a) com filhos" /><span>Casado(a) com filhos</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Você trabalha sozinho(a) ou tem equipe?</span>
-            <select name="team" required>
-              <option value="">Selecione</option>
-              <option>Sozinho(a) (solo)</option>
-              <option>Eu + 1 ajudante</option>
-              <option>Equipe de 2 a 5</option>
-              <option>Equipe de 6+</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Você trabalha sozinho(a) ou tem equipe?</legend>
+            <label class="choice"><input type="radio" name="team" value="Sozinho(a) (solo)" required /><span>Sozinho(a) (solo)</span></label>
+            <label class="choice"><input type="radio" name="team" value="Eu + 1 ajudante" /><span>Eu + 1 ajudante</span></label>
+            <label class="choice"><input type="radio" name="team" value="Equipe de 2 a 5" /><span>Equipe de 2 a 5</span></label>
+            <label class="choice"><input type="radio" name="team" value="Equipe de 6+" /><span>Equipe de 6+</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Tipo de negócio</span>
-            <select name="biz_type" required>
-              <option value="">Selecione</option>
-              <option>Coach / mentor</option>
-              <option>Consultor(a)</option>
-              <option>Infoprodutor(a) (curso/ebook)</option>
-              <option>Prestador de serviço local</option>
-              <option>Agência iniciante</option>
-              <option>E-commerce pequeno</option>
-              <option>Profissional liberal</option>
-              <option>Ainda não tenho — vou começar</option>
-              <option>Outro</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Tipo de negócio</legend>
+            <label class="choice"><input type="radio" name="biz_type" value="Coach / mentor" required /><span>Coach / mentor</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Consultor(a)" /><span>Consultor(a)</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Infoprodutor(a) (curso/ebook)" /><span>Infoprodutor(a) (curso/ebook)</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Prestador de serviço local" /><span>Prestador de serviço local</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Agência iniciante" /><span>Agência iniciante</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="E-commerce pequeno" /><span>E-commerce pequeno</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Profissional liberal" /><span>Profissional liberal</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Ainda não tenho — vou começar" /><span>Ainda não tenho — vou começar</span></label>
+            <label class="choice"><input type="radio" name="biz_type" value="Outro" /><span>Outro</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Faturamento médio mensal hoje</span>
-            <select name="revenue" required>
-              <option value="">Selecione</option>
-              <option>R$ 0 (ainda não vendi)</option>
-              <option>R$ 1 - R$ 2.000</option>
-              <option>R$ 2.001 - R$ 5.000</option>
-              <option>R$ 5.001 - R$ 10.000</option>
-              <option>R$ 10.001 - R$ 30.000</option>
-              <option>R$ 30.001 - R$ 100.000</option>
-              <option>R$ 100.000+</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Faturamento médio mensal hoje</legend>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 0 (ainda não vendi)" required /><span>R$ 0 (ainda não vendi)</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 1 - R$ 2.000" /><span>R$ 1 – R$ 2.000</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 2.001 - R$ 5.000" /><span>R$ 2.001 – R$ 5.000</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 5.001 - R$ 10.000" /><span>R$ 5.001 – R$ 10.000</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 10.001 - R$ 30.000" /><span>R$ 10.001 – R$ 30.000</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 30.001 - R$ 100.000" /><span>R$ 30.001 – R$ 100.000</span></label>
+            <label class="choice"><input type="radio" name="revenue" value="R$ 100.000+" /><span>R$ 100.000+</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Há quanto tempo tem (ou está planejando) esse negócio?</span>
-            <select name="biz_age" required>
-              <option value="">Selecione</option>
-              <option>Ainda não comecei</option>
-              <option>Menos de 6 meses</option>
-              <option>6 a 12 meses</option>
-              <option>1 a 2 anos</option>
-              <option>3 a 5 anos</option>
-              <option>5+ anos</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Há quanto tempo tem (ou está planejando) esse negócio?</legend>
+            <label class="choice"><input type="radio" name="biz_age" value="Ainda não comecei" required /><span>Ainda não comecei</span></label>
+            <label class="choice"><input type="radio" name="biz_age" value="Menos de 6 meses" /><span>Menos de 6 meses</span></label>
+            <label class="choice"><input type="radio" name="biz_age" value="6 a 12 meses" /><span>6 a 12 meses</span></label>
+            <label class="choice"><input type="radio" name="biz_age" value="1 a 2 anos" /><span>1 a 2 anos</span></label>
+            <label class="choice"><input type="radio" name="biz_age" value="3 a 5 anos" /><span>3 a 5 anos</span></label>
+            <label class="choice"><input type="radio" name="biz_age" value="5+ anos" /><span>5+ anos</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Status atual do seu funil de venda hoje</span>
-            <select name="current_stack" required>
-              <option value="">Selecione</option>
-              <option>Não tenho funil — começando do zero</option>
-              <option>Vendo só pelo Instagram/DM, sem funil</option>
-              <option>Tenho landing, mas sem checkout integrado</option>
-              <option>Tenho checkout (Kiwify/Hotmart), mas sem landing/captação</option>
-              <option>Tenho funil rodando, mas dando problema</option>
-              <option>Tinha agência/freelancer, agora quero fazer sozinho</option>
-              <option>Outro</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Status atual do seu funil de venda hoje</legend>
+            <label class="choice"><input type="radio" name="current_stack" value="Não tenho funil — começando do zero" required /><span>Não tenho funil — começando do zero</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Vendo só pelo Instagram/DM, sem funil" /><span>Vendo só pelo Instagram/DM, sem funil</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Tenho landing, mas sem checkout integrado" /><span>Tenho landing, mas sem checkout integrado</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Tenho checkout (Kiwify/Hotmart), mas sem landing/captação" /><span>Tenho checkout (Kiwify/Hotmart), mas sem landing/captação</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Tenho funil rodando, mas dando problema" /><span>Tenho funil rodando, mas dando problema</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Tinha agência/freelancer, agora quero fazer sozinho" /><span>Tinha agência/freelancer, agora quero fazer sozinho</span></label>
+            <label class="choice"><input type="radio" name="current_stack" value="Outro" /><span>Outro</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</span>
-            <select name="prior_spend" required>
-              <option value="">Selecione</option>
-              <option>R$ 0 — nunca contratei</option>
-              <option>R$ 1 - R$ 500</option>
-              <option>R$ 501 - R$ 2.000</option>
-              <option>R$ 2.001 - R$ 5.000</option>
-              <option>R$ 5.001 - R$ 15.000</option>
-              <option>R$ 15.000+</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Quanto você gastou com desenvolvedor, agência ou freelancer nos últimos 12 meses?</legend>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 0 — nunca contratei" required /><span>R$ 0 — nunca contratei</span></label>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 1 - R$ 500" /><span>R$ 1 – R$ 500</span></label>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 501 - R$ 2.000" /><span>R$ 501 – R$ 2.000</span></label>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 2.001 - R$ 5.000" /><span>R$ 2.001 – R$ 5.000</span></label>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 5.001 - R$ 15.000" /><span>R$ 5.001 – R$ 15.000</span></label>
+            <label class="choice"><input type="radio" name="prior_spend" value="R$ 15.000+" /><span>R$ 15.000+</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
@@ -197,50 +170,41 @@
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Há quanto tempo você me acompanha?</span>
-            <select name="known_for" required>
-              <option value="">Selecione</option>
-              <option>Cheguei hoje — primeira vez que ouço falar</option>
-              <option>Menos de 1 semana</option>
-              <option>1 a 4 semanas</option>
-              <option>1 a 3 meses</option>
-              <option>3 a 12 meses</option>
-              <option>Mais de 1 ano</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Há quanto tempo você me acompanha?</legend>
+            <label class="choice"><input type="radio" name="known_for" value="Cheguei hoje — primeira vez que ouço falar" required /><span>Cheguei hoje — primeira vez que ouço falar</span></label>
+            <label class="choice"><input type="radio" name="known_for" value="Menos de 1 semana" /><span>Menos de 1 semana</span></label>
+            <label class="choice"><input type="radio" name="known_for" value="1 a 4 semanas" /><span>1 a 4 semanas</span></label>
+            <label class="choice"><input type="radio" name="known_for" value="1 a 3 meses" /><span>1 a 3 meses</span></label>
+            <label class="choice"><input type="radio" name="known_for" value="3 a 12 meses" /><span>3 a 12 meses</span></label>
+            <label class="choice"><input type="radio" name="known_for" value="Mais de 1 ano" /><span>Mais de 1 ano</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Onde você me viu pela primeira vez?</span>
-            <select name="first_touch" required>
-              <option value="">Selecione</option>
-              <option>Instagram (post/reels)</option>
-              <option>Instagram (story)</option>
-              <option>YouTube</option>
-              <option>TikTok</option>
-              <option>LinkedIn</option>
-              <option>Google / pesquisa</option>
-              <option>Indicação de amigo</option>
-              <option>Anúncio pago</option>
-              <option>Outro</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Onde você me viu pela primeira vez?</legend>
+            <label class="choice"><input type="radio" name="first_touch" value="Instagram (post/reels)" required /><span>Instagram (post/reels)</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="Instagram (story)" /><span>Instagram (story)</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="YouTube" /><span>YouTube</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="TikTok" /><span>TikTok</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="LinkedIn" /><span>LinkedIn</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="Google / pesquisa" /><span>Google / pesquisa</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="Indicação de amigo" /><span>Indicação de amigo</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="Anúncio pago" /><span>Anúncio pago</span></label>
+            <label class="choice"><input type="radio" name="first_touch" value="Outro" /><span>Outro</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>
-          <label class="step-label">
-            <span class="step-q">Quantos conteúdos meus você consumiu ANTES de comprar?</span>
-            <select name="content_consumed" required>
-              <option value="">Selecione</option>
-              <option>Esse foi o 1º</option>
-              <option>2 a 5</option>
-              <option>6 a 15</option>
-              <option>16 a 50</option>
-              <option>50+</option>
-            </select>
-          </label>
+          <fieldset class="step-label choices">
+            <legend class="step-q">Quantos conteúdos meus você consumiu ANTES de comprar?</legend>
+            <label class="choice"><input type="radio" name="content_consumed" value="Esse foi o 1º" required /><span>Esse foi o 1º</span></label>
+            <label class="choice"><input type="radio" name="content_consumed" value="2 a 5" /><span>2 a 5</span></label>
+            <label class="choice"><input type="radio" name="content_consumed" value="6 a 15" /><span>6 a 15</span></label>
+            <label class="choice"><input type="radio" name="content_consumed" value="16 a 50" /><span>16 a 50</span></label>
+            <label class="choice"><input type="radio" name="content_consumed" value="50+" /><span>50+</span></label>
+          </fieldset>
         </div>
 
         <div class="step" hidden>

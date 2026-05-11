@@ -1,7 +1,7 @@
 // ============================================================================
 // Funil de estudo — página de obrigado
 // Saúda pelo nome, coleta pesquisa Lost Chapter (Hormozi) num fluxo sequencial
-// estilo typeform (uma pergunta por vez, voltar/avançar), salva localmente
+// estilo typeform (uma pergunta por vez, multiple choice em cards), salva local
 // ============================================================================
 
 // >>> Opcional: webhook para receber as respostas (Make/Zapier/n8n) <<<
@@ -10,6 +10,8 @@ const SURVEY_WEBHOOK_URL = "";
 
 const LS_LEAD = "funil:lead";
 const LS_SURVEY = "funil:survey";
+
+const AUTO_ADVANCE_DELAY = 320; // ms — feedback visual antes de avançar
 
 function loadLead() {
   try {
@@ -45,25 +47,51 @@ const nextBtn = document.getElementById("next-btn");
 const submitBtn = document.getElementById("survey-submit");
 
 let current = 0;
+let advanceTimer = null;
 
-function activeControl(step) {
-  return step.querySelector("input, select, textarea");
+function getRadios(step) {
+  return Array.from(step.querySelectorAll('input[type="radio"]'));
+}
+
+function getInputCtrl(step) {
+  return step.querySelector("input:not([type=radio]), select, textarea");
+}
+
+function focusable(step) {
+  const radios = getRadios(step);
+  if (radios.length) {
+    return radios.find((r) => r.checked) || radios[0];
+  }
+  return getInputCtrl(step);
 }
 
 function isStepValid(step) {
-  const ctrl = activeControl(step);
+  const radios = getRadios(step);
+  if (radios.length) {
+    const required = radios.some((r) => r.hasAttribute("required"));
+    if (!required) return true;
+    return radios.some((r) => r.checked);
+  }
+  const ctrl = getInputCtrl(step);
   if (!ctrl) return true;
   if (!ctrl.hasAttribute("required")) return true;
   return ctrl.value && ctrl.value.trim() !== "";
 }
 
 function flagStep(step, invalid) {
-  const ctrl = activeControl(step);
+  const radios = getRadios(step);
+  if (radios.length) {
+    const fieldset = step.querySelector("fieldset.choices");
+    if (fieldset) fieldset.setAttribute("aria-invalid", invalid ? "true" : "false");
+    return;
+  }
+  const ctrl = getInputCtrl(step);
   if (!ctrl) return;
   ctrl.setAttribute("aria-invalid", invalid ? "true" : "false");
 }
 
 function showStep(i) {
+  clearTimeout(advanceTimer);
   steps.forEach((s, idx) => {
     const isActive = idx === i;
     s.classList.toggle("active", isActive);
@@ -77,16 +105,16 @@ function showStep(i) {
   if (nextBtn) nextBtn.hidden = isLast;
   if (submitBtn) submitBtn.hidden = !isLast;
 
-  const ctrl = activeControl(steps[i]);
-  if (ctrl) setTimeout(() => ctrl.focus({ preventScroll: true }), 30);
+  const target = focusable(steps[i]);
+  if (target) setTimeout(() => target.focus({ preventScroll: true }), 30);
 }
 
 function goNext() {
   const step = steps[current];
   if (!isStepValid(step)) {
     flagStep(step, true);
-    const ctrl = activeControl(step);
-    if (ctrl) ctrl.focus();
+    const target = focusable(step);
+    if (target) target.focus();
     return;
   }
   flagStep(step, false);
@@ -100,8 +128,23 @@ function goPrev() {
 if (prevBtn) prevBtn.addEventListener("click", goPrev);
 if (nextBtn) nextBtn.addEventListener("click", goNext);
 
-// Enter avança (mas não em textarea — lá Enter é quebra de linha)
+// Auto-avançar ao escolher uma opção de radio (typeform-style)
 if (form) {
+  form.addEventListener("change", (e) => {
+    if (!(e.target instanceof HTMLInputElement)) return;
+    if (e.target.type !== "radio") return;
+    flagStep(steps[current], false);
+    clearTimeout(advanceTimer);
+    advanceTimer = setTimeout(() => {
+      if (current === steps.length - 1) {
+        if (isStepValid(steps[current])) form.requestSubmit();
+      } else {
+        goNext();
+      }
+    }, AUTO_ADVANCE_DELAY);
+  });
+
+  // Enter avança (exceto em textarea, onde mantém quebra de linha)
   form.addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
     const tag = (e.target.tagName || "").toLowerCase();
@@ -111,7 +154,8 @@ if (form) {
       if (isStepValid(steps[current])) form.requestSubmit();
       else {
         flagStep(steps[current], true);
-        activeControl(steps[current]).focus();
+        const target = focusable(steps[current]);
+        if (target) target.focus();
       }
     } else {
       goNext();
@@ -126,8 +170,8 @@ async function handleSubmit(event) {
   const step = steps[current];
   if (!isStepValid(step)) {
     flagStep(step, true);
-    const ctrl = activeControl(step);
-    if (ctrl) ctrl.focus();
+    const target = focusable(step);
+    if (target) target.focus();
     return;
   }
 

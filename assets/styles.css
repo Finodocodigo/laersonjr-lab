@@ -32,6 +32,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -782,8 +784,23 @@ textarea {
 }
 
 .thankyou .form-section {
-  padding: 24px 0 96px;
-  background: var(--bg);
+  padding: 32px 0 96px;
+  background: var(--bg-alt);
+}
+
+.thankyou .form-section .container.narrow {
+  position: relative;
+}
+
+.thankyou .form-section .form-eyebrow {
+  display: block;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 0 0 16px;
 }
 
 /* ============================================================================
@@ -791,16 +808,28 @@ textarea {
    ============================================================================ */
 
 .survey-flow {
+  position: relative;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 56px 48px;
-  box-shadow: var(--shadow);
-  min-height: 420px;
+  padding: 64px 56px 48px;
+  box-shadow: var(--shadow-lg);
+  min-height: 460px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
+  overflow: hidden;
+}
+
+.survey-flow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%);
 }
 
 .survey-flow .step {

@@ -30,8 +30,8 @@
   --max-w-narrow: 760px;
 
   /* Torn-paper effect */
-  --desk: #b8b1a0;
-  --tear-h: 18px;
+  --desk: #3a342c;
+  --tear-h: 11px;
 }
 
 * { box-sizing: border-box; }
@@ -1058,7 +1058,7 @@ footer {
       0 var(--tear-h) / 100% calc(100% - (var(--tear-h) * 2)) no-repeat,
     url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,0L400,0L400,11L388,9L376,14L364,11L352,12L340,8L328,15L316,10L304,13L292,7L280,9L268,14L256,11L244,8L232,12L220,15L208,9L196,13L184,7L172,11L160,14L148,8L136,12L124,9L112,16L100,10L88,13L76,7L64,11L52,14L40,9L28,12L16,8L4,13L0,10Z' fill='black'/%3E%3C/svg%3E")
       bottom / 100% var(--tear-h) no-repeat;
-  filter: drop-shadow(0 3px 4px rgba(15, 23, 42, 0.18));
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.28));
 }
 
 /* First piece — clean top, only bottom torn */

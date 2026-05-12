@@ -4,7 +4,7 @@
 
 :root {
   --bg: #ffffff;
-  --bg-alt: #f7f8fa;
+  --bg-alt: #fbfaf5;
   --bg-dark: #0f172a;
   --bg-dark-2: #1e293b;
   --text: #0f172a;
@@ -28,6 +28,19 @@
   --shadow-lg: 0 24px 48px rgba(15, 23, 42, 0.10);
   --max-w: 1080px;
   --max-w-narrow: 760px;
+
+  /* Notebook paper effect */
+  --paper-rule: rgba(72, 128, 200, 0.13);
+  --paper-rule-spacing: 32px;
+  --paper-rules: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--paper-rule-spacing) - 1px),
+    var(--paper-rule) calc(var(--paper-rule-spacing) - 1px),
+    var(--paper-rule) var(--paper-rule-spacing)
+  );
+  --desk: #cdc6b3;
+  --tear-h: 22px;
 }
 
 * { box-sizing: border-box; }
@@ -42,7 +55,7 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--text);
-  background: var(--bg);
+  background: var(--desk);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -168,6 +181,7 @@ section { padding: 88px 0; }
   padding: 96px 0 72px;
   text-align: center;
   background:
+    var(--paper-rules),
     radial-gradient(ellipse at top, rgba(108, 92, 231, 0.06), transparent 60%),
     var(--bg);
 }
@@ -204,7 +218,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .agitation {
-  background: var(--bg-alt);
+  background: var(--paper-rules), var(--bg-alt);
 }
 
 .pain-bullets {
@@ -237,7 +251,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .solution {
-  background: var(--bg);
+  background: var(--paper-rules), var(--bg);
 }
 
 .solution h2 em {
@@ -254,7 +268,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .modules {
-  background: var(--bg-alt);
+  background: var(--paper-rules), var(--bg-alt);
 }
 
 .modules h2 {
@@ -309,7 +323,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .stack {
-  background: var(--bg);
+  background: var(--paper-rules), var(--bg);
 }
 
 .stack h2 {
@@ -440,7 +454,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .who-for {
-  background: var(--bg-alt);
+  background: var(--paper-rules), var(--bg-alt);
 }
 
 .who-for h2 {
@@ -508,7 +522,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 .faq {
-  background: var(--bg);
+  background: var(--paper-rules), var(--bg);
 }
 
 .faq h2 {
@@ -607,7 +621,7 @@ section { padding: 88px 0; }
    ============================================================================ */
 
 footer {
-  background: var(--bg);
+  background: var(--paper-rules), var(--bg);
   padding: 32px 0;
   border-top: 1px solid var(--border);
   text-align: center;
@@ -768,6 +782,7 @@ textarea {
 
 .thankyou .hero-success {
   background:
+    var(--paper-rules),
     radial-gradient(ellipse at top, rgba(0, 184, 169, 0.08), transparent 60%),
     var(--bg);
   padding: 88px 0 48px;
@@ -785,7 +800,7 @@ textarea {
 
 .thankyou .form-section {
   padding: 32px 0 96px;
-  background: var(--bg-alt);
+  background: var(--paper-rules), var(--bg-alt);
 }
 
 .thankyou .form-section .container.narrow {
@@ -1026,3 +1041,62 @@ textarea {
   .final-cta { padding: 64px 0; }
   #thanks-block { padding: 32px 22px; }
 }
+
+/* ============================================================================
+   Notebook paper — torn edges between sections
+   ============================================================================ */
+
+.hero,
+.thankyou .hero-success,
+section,
+footer {
+  position: relative;
+  -webkit-mask:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22L400,22L400,13L388,9L376,14L364,8L352,12L340,7L328,15L316,10L304,6L292,13L280,9L268,15L256,11L244,8L232,14L220,6L208,12L196,9L184,15L172,7L160,13L148,10L136,15L124,8L112,12L100,6L88,14L76,9L64,13L52,7L40,11L28,15L16,8L4,13L0,10Z' fill='black'/%3E%3C/svg%3E")
+      top / 100% var(--tear-h) no-repeat,
+    linear-gradient(#000, #000)
+      0 var(--tear-h) / 100% calc(100% - (var(--tear-h) * 2)) no-repeat,
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,0L400,0L400,9L388,13L376,8L364,14L352,10L340,15L328,7L316,12L304,16L292,9L280,13L268,7L256,11L244,14L232,8L220,16L208,10L196,13L184,7L172,15L160,9L148,12L136,7L124,14L112,10L100,16L88,8L76,13L64,9L52,15L40,11L28,7L16,14L4,9L0,12Z' fill='black'/%3E%3C/svg%3E")
+      bottom / 100% var(--tear-h) no-repeat;
+  mask:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22L400,22L400,13L388,9L376,14L364,8L352,12L340,7L328,15L316,10L304,6L292,13L280,9L268,15L256,11L244,8L232,14L220,6L208,12L196,9L184,15L172,7L160,13L148,10L136,15L124,8L112,12L100,6L88,14L76,9L64,13L52,7L40,11L28,15L16,8L4,13L0,10Z' fill='black'/%3E%3C/svg%3E")
+      top / 100% var(--tear-h) no-repeat,
+    linear-gradient(#000, #000)
+      0 var(--tear-h) / 100% calc(100% - (var(--tear-h) * 2)) no-repeat,
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,0L400,0L400,9L388,13L376,8L364,14L352,10L340,15L328,7L316,12L304,16L292,9L280,13L268,7L256,11L244,14L232,8L220,16L208,10L196,13L184,7L172,15L160,9L148,12L136,7L124,14L112,10L100,16L88,8L76,13L64,9L52,15L40,11L28,7L16,14L4,9L0,12Z' fill='black'/%3E%3C/svg%3E")
+      bottom / 100% var(--tear-h) no-repeat;
+  filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.08));
+}
+
+/* First piece of the page — clean top, only bottom torn */
+.hero,
+.thankyou .hero-success {
+  -webkit-mask:
+    linear-gradient(#000, #000)
+      top / 100% calc(100% - var(--tear-h)) no-repeat,
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,0L400,0L400,9L388,13L376,8L364,14L352,10L340,15L328,7L316,12L304,16L292,9L280,13L268,7L256,11L244,14L232,8L220,16L208,10L196,13L184,7L172,15L160,9L148,12L136,7L124,14L112,10L100,16L88,8L76,13L64,9L52,15L40,11L28,7L16,14L4,9L0,12Z' fill='black'/%3E%3C/svg%3E")
+      bottom / 100% var(--tear-h) no-repeat;
+  mask:
+    linear-gradient(#000, #000)
+      top / 100% calc(100% - var(--tear-h)) no-repeat,
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,0L400,0L400,9L388,13L376,8L364,14L352,10L340,15L328,7L316,12L304,16L292,9L280,13L268,7L256,11L244,14L232,8L220,16L208,10L196,13L184,7L172,15L160,9L148,12L136,7L124,14L112,10L100,16L88,8L76,13L64,9L52,15L40,11L28,7L16,14L4,9L0,12Z' fill='black'/%3E%3C/svg%3E")
+      bottom / 100% var(--tear-h) no-repeat;
+}
+
+/* Last piece of the page — torn top, clean bottom */
+footer {
+  -webkit-mask:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22L400,22L400,13L388,9L376,14L364,8L352,12L340,7L328,15L316,10L304,6L292,13L280,9L268,15L256,11L244,8L232,14L220,6L208,12L196,9L184,15L172,7L160,13L148,10L136,15L124,8L112,12L100,6L88,14L76,9L64,13L52,7L40,11L28,15L16,8L4,13L0,10Z' fill='black'/%3E%3C/svg%3E")
+      top / 100% var(--tear-h) no-repeat,
+    linear-gradient(#000, #000)
+      0 var(--tear-h) / 100% calc(100% - var(--tear-h)) no-repeat;
+  mask:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 22' preserveAspectRatio='none'%3E%3Cpath d='M0,22L400,22L400,13L388,9L376,14L364,8L352,12L340,7L328,15L316,10L304,6L292,13L280,9L268,15L256,11L244,8L232,14L220,6L208,12L196,9L184,15L172,7L160,13L148,10L136,15L124,8L112,12L100,6L88,14L76,9L64,13L52,7L40,11L28,15L16,8L4,13L0,10Z' fill='black'/%3E%3C/svg%3E")
+      top / 100% var(--tear-h) no-repeat,
+    linear-gradient(#000, #000)
+      0 var(--tear-h) / 100% calc(100% - var(--tear-h)) no-repeat;
+}
+
+/* The "notice" intro page uses .notice + .notice-card, not sections — keep clean */
+.notice { background: var(--bg) !important; }
+.notice-card { filter: none; }
